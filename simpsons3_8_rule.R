@@ -19,3 +19,9 @@ simpsons3_8rule<-function(a,b,n){
   return(sum);
 }
 simpsons3_8rule(1,2,10)
+
+
+
+
+
+
