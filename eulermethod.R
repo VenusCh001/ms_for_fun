@@ -1,0 +1,19 @@
+#one step euler method
+f<-function(x,y){
+  return(y-x)
+}
+euler<-function(f,x0,y0,h,N){
+  n=0;
+  df=NULL;
+  xvalue=x0;
+  yvalue=y0;
+  while(n<N){
+    hf=h*f(xvalue,yvalue);
+    df=rbind(df,data.frame(N=n,x=xvalue,y=yvalue,hfxy=hf))
+    yvalue=hf+yvalue;
+    n=n+1;
+    xvalue=x0+n*h
+  }
+  print(df)
+}
+euler(f,0,2,0.1,2)

@@ -1,0 +1,19 @@
+rkmethod4<-function(f,x0,y0,h,N){
+  n=0;
+  df=NULL;
+  x=x0;
+  y=y0;
+  while(n<N){
+    k1=h*f(x,y);
+    k2=h*f(x+h/2,y+k1/2);
+    k3=h*f(x+h/2,y+k2/2);
+    k4=h*f(x+h,y+k3);
+    k=k1/6+k2/3+k3/3+k4/6;
+    df=rbind(df,data.frame(n=n,x=x,y=y,k=k,yn=y+k));
+    x=x+h;
+    y=y+k;
+    n=n+1;
+  }
+  print(df);
+}
+rkmethod4(f,0,1,0.1,3)
